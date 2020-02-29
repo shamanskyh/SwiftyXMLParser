@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 
+#if !os(watchOS)
 import XCTest
 @testable import SwiftyXMLParser
 
@@ -81,5 +82,5 @@ class XMLTests: XCTestCase {
             XCTFail("Fail Parse")
         }
     }
-
 }
+#endif

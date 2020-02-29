@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 
+#if !os(watchOS)
 import XCTest
 @testable import SwiftyXMLParser
 
@@ -52,3 +53,4 @@ class CustomOperatorTests: XCTestCase {
     }
 
 }
+#endif

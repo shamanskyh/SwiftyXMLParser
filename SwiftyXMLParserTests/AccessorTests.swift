@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 
+#if !os(watchOS)
 import XCTest
 @testable import SwiftyXMLParser
 
@@ -401,3 +402,4 @@ class AccessorTests: XCTestCase {
         return XMLError.accessError(description: "error")
     }
 }
+#endif

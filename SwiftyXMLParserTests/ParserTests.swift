@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 
+#if !os(watchOS)
 import XCTest
 @testable import SwiftyXMLParser
 
@@ -161,3 +162,4 @@ class ParserTests: XCTestCase {
         XCTAssertEqual("@ß123\u{1c}", xml["xmlopening"].text?.removingPercentEncoding, "Parsed Success and trim them")
     }
 }
+#endif

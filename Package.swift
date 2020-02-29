@@ -1,3 +1,5 @@
+// swift-tools-version:5.0
+
 /**
  * The MIT License (MIT)
  *
@@ -22,32 +24,30 @@
  * THE SOFTWARE.
  */
 
-#if !os(watchOS)
-import XCTest
-@testable import SwiftyXMLParser
+import PackageDescription
 
-class SwiftyXMLParserTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-}
-#endif
+let package = Package(
+    name: "SwiftyXMLParser",
+    platforms: [
+        .iOS(.v8),
+        .tvOS(.v9),
+        .watchOS(.v5)
+    ],
+    products: [
+        .library(
+            name: "SwiftyXMLParser",
+            targets: ["SwiftyXMLParser"]),
+    ],
+    targets: [
+        .target(
+            name: "SwiftyXMLParser",
+            path: "SwiftyXMLParser/",
+            exclude: ["iOS Sample/"]),
+        .testTarget(
+            name: "SwiftyXMLParserTests",
+            dependencies: ["SwiftyXMLParser"],
+            path: "SwiftyXMLParserTests/",
+            exclude: ["iOS Sample/"])
+    ]
+)
+
