@@ -36,6 +36,7 @@ let package = Package(
     products: [
         .library(
             name: "SwiftyXMLParser",
+            type: .dynamic,
             targets: ["SwiftyXMLParser"]),
     ],
     targets: [
